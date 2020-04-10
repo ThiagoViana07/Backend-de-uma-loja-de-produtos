@@ -10,14 +10,26 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0-c2ji7.mongodb.net/test?retr
 
 //carrega os models
 const Product = require('./models/products')
+const Customer = require('./models/customer')
+const Order = require('./models/order')
+
+
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productsRoute = require('./routes/products-route');
+const customerRoute = require('./routes/customer-route');
+const orderRoute = require('./routes/order-route');
+
+
 
 app.use(express.json())
 
 app.use('/', indexRoute);
 app.use('/products', productsRoute);
+app.use('/customers', customerRoute);
+app.use('/orders', orderRoute);
+
+
 
 module.exports = app;
